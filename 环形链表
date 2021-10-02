@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define N 10
+typedef struct Node
+{
+    int data;
+    struct Node *next;
+}node;
+typedef struct Node*LinkList;
+node *create()
+{
+    int i;
+    node*q=NULL,*head;
+    head=(node*)malloc(sizeof(node));
+    q=head;
+    head->next=NULL;
+    head->data=i;
+    if(head==NULL) 
+    printf("NULL");
+    node *tail=head;
+    for(i=1;i<N;i++)
+    {
+        q=(node*)malloc(sizeof(node));
+        q->data=i;
+        q->next=NULL;
+        tail->next=q;
+        tail=q;
+    }
+    tail->next=head->next->next;//尾指针指向第二个
+    return (head);
+}
+int main()
+{
+    node *p=create();
+    int i;
+    for(i=0;i<N;i++)
+    {
+        printf("%d ",p->data);
+        p=p->next;
+    }
+    return 0;
+}
